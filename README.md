@@ -5,4 +5,4 @@ need a conniction to internet
 
 tested on android 
 
-i use a free api with limit of requests per day
+application use a free api with limit of requests per day

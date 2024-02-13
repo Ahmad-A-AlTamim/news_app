@@ -20,12 +20,15 @@ class BodyViewState extends State<BodyView> {
   void firstRun() async {
     await NewsApiService.getGeneralNews();
     isLoading = false;
+    NewsApiService.cahngeLoding = 1;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return (isLoading == false)
+    return (isLoading == false &&
+            NewsApiService.internet == 1 &&
+            NewsApiService.cahngeLoding == 1)
         ? NewsPostListView(
             infoList: NewsApiService.postsDataList.isEmpty
                 ? []

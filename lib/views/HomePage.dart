@@ -10,7 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  BodyView myBody = BodyView();
+  static String headTitle = 'General';
+
+  // ignore: prefer_const_constructors
+  BodyView myBody = const BodyView();
   void update() {
     setState(() {});
   }
@@ -18,6 +21,7 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    NewsApiService.x = update;
   }
 
   Map<String, Future<void> Function()> headsList = {
@@ -34,27 +38,41 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(40.0),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
+          backgroundColor: Colors.blueAccent,
+          elevation: 1,
           centerTitle: true,
           title: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 "News",
-                style: TextStyle(color: Colors.black, fontSize: 28),
+                style: TextStyle(color: Colors.white, fontSize: 26),
               ),
               Text(
                 "Cloud",
-                style: TextStyle(color: Colors.yellow, fontSize: 28),
+                style: TextStyle(color: Colors.yellow, fontSize: 26),
               ),
             ],
           ),
         ),
       ),
       body: CustomScrollView(slivers: [
+        SliverToBoxAdapter(
+          child: Container(
+            width: double.infinity,
+            color: Colors.white,
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Text(
+                headTitle,
+                style: const TextStyle(color: Colors.black, fontSize: 26),
+              ),
+            ),
+          ),
+        ),
         SliverToBoxAdapter(
           child: SizedBox(
             height: MediaQuery.of(context).size.height / 5.8,
@@ -69,6 +87,7 @@ class HomePageState extends State<HomePage> {
             height: 5,
           ),
         ),
+        // ignore: prefer_const_constructors
         BodyView()
       ]),
     );

@@ -1,8 +1,16 @@
 # news_app
-Application for Arabic news in most common topic built using flutter
 
-need a conniction to internet
+A new Flutter project.
 
-tested on android 
+## Getting Started
 
-application use a free api with limit of requests per day
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

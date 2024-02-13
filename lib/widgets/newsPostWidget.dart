@@ -1,15 +1,26 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, must_be_immutable, unnecessary_const
 import 'package:flutter/material.dart';
 import 'package:news_app/modules/newPostInfo.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsPost extends StatelessWidget {
   NewsPostInfo info;
   NewsPost({required this.info});
+  _launchURL() async {
+    String url = info.url;
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        _launchURL();
+      },
       child: Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
